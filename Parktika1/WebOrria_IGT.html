@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      // Google Charts liburutegia kargatu
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(hasiGrafikoa);
+
+      // Funtzio honek grafikoa lehen aldiz kargatzen du eta eguneraketa automatikoa abiarazten du
+      function hasiGrafikoa() {
+        datuakLortu(); // Lehenengo deskarga berehala egin
+        setInterval(datuakLortu, 15000); // 15 segundoro (15000 ms) funtzioa berriro exekutatu
+      }
+
+      function datuakLortu() {
+        var xhttp = new XMLHttpRequest();
+
+        var uria = "https://api.thingspeak.com/channels/3256350/feeds.json?results=20";
+
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var erantzuna = JSON.parse(this.responseText);
+            var feedak = erantzuna.feeds;
+
+            var datuTaula = new google.visualization.DataTable();
+            datuTaula.addColumn('string', 'Denbora');
+            datuTaula.addColumn('number', '%CPU');
+            datuTaula.addColumn('number', '%RAM');
+
+            for (var i = 0; i < feedak.length; i++) {
+              // Ordua atera (adibidez: 15:50:56)
+              var ordua = feedak[i].created_at.substring(11, 19);
+              var cpu = parseFloat(feedak[i].field1);
+              var ram = parseFloat(feedak[i].field2);
+
+              // Egiaztatu datuak zenbakiak direla (null edo hutsik ez daudela) grafikoa ez apurtzeko
+              if (!isNaN(cpu) && !isNaN(ram)) {
+                datuTaula.addRow([ordua, cpu, ram]);
+              }
+            }
+
+            // Bistaratze aukerak (gidoiak eskatutakoak)
+            var aukerak = {
+              title: 'Computer performance',
+              legend: {position: 'bottom'},
+              curveType: 'function',
+              colors: ['red', 'blue'],
+              series: {0: {targetAxisIndex: 0}, 1: {targetAxisIndex: 1}},
+              vAxes: {0: {title: 'CPU'}, 1: {title: 'RAM'}}
+            };
+
+            // Grafikoa sortu eta marraztu
+            var grafikoa = new google.visualization.LineChart(document.getElementById('grafikoa_div'));
+            grafikoa.draw(datuTaula, aukerak);
+          }
+        };
+
+        // Eskaera asinkronoa bidali
+        xhttp.open("GET", uria, true);
+        xhttp.send();
+      }
+    </script>
+  </head>
+  <body>
+    <div id="grafikoa_div" style="width: 1000px; height: 500px;"></div>
+  </body>
+</html>
