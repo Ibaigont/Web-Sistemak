@@ -1,0 +1,230 @@
+article, section, aside, hgroup, nav, header, footer, figure, figcaption
+{
+	display: block;
+}
+
+html {
+	font-family: helvetic arial, 'sans serif';
+}
+
+body {
+	font-family: arial;;
+	margin: 0px;
+	padding: 0px;
+}
+
+h1, h2, h3, a{
+	color: #ffffff;
+	font-size: 15px;
+}
+
+h1 {
+	font-size: 20px;
+	color:rgb(252,200,41);
+}
+
+h2 {
+	font-size: 18px
+}
+
+h4 {
+	font-size: 14px
+}	
+h5 {
+	font-size: 14p;
+	color: white;	
+}
+table {
+	margin: 0 auto;
+	border-color: rgb(83, 33, 168);
+	border-collapse: collapse;
+}
+
+table.edicion {
+	width: 100%;
+	background-color: rgb(143, 159, 186)
+}
+
+th, td {
+	padding: 5px;
+	font-size: 15px;
+	text-align: center;
+}
+
+
+#menu{
+  width: 100%;
+	height: 100%;
+		border: 4px solid #FFFFFF;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	display: table-column-group;
+	
+}
+th.edicion, td.edicion {
+	
+	border: 4px solid #FFFFFF;
+	border-top-width: 0px;
+	border-bottom-width: 0px;
+	
+}
+
+/* imagenes */
+hgroup {
+	background-repeat: no-repeat;
+	background-position: 0 center;
+	padding: 0px 0 0px 180px;
+	height: 90px;
+}
+
+/* partes del documento */
+section, aside {
+	/*-moz-border-radius: 2px;
+  	border-radius: 5px;*/
+	padding: 1px;
+	margin: 4px;
+	background-color: #667799;
+}
+
+header {
+	padding: 5px 5px 5px 5px;
+	margin: 4px;
+	background-color:#54697e;
+	text-align: center;
+	color: white;
+}
+
+footer {
+	padding: 10px;
+	margin: 4px;
+	background-color: #667799;
+	font-size: 0.8em;
+}
+
+/*nav {
+	background-color: white;
+	border-radius: 0px;
+	padding: 10px;
+	margin: 10px;
+	border: 4px outset;
+	border-color: #ffffaf;
+}*/
+nav {
+	padding: 10px;
+	margin: 4px;
+	background-color: #667799;
+	border-color: #ffffaf;
+	font-size: 0.8em;
+}
+
+figure {
+	padding: 20px;
+	background-color: white;
+	margin: 0 auto;
+	width: 25%;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-o-transform: rotate(2deg);
+	-moz-transform: rotate(2deg);
+	-webkit-transform: rotate(2deg);
+	transform: rotate(2deg);
+	box-shadow: black 5px 5px 5px;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+figcaption {
+	text-align: center;
+}
+
+button, select {
+	padding: 5px 5px 5px 5px;
+	font-size: 15px;
+	background-color: #c0c0c0;
+	/*width: 33%*/;
+}
+
+button.nav {
+	/*padding: 5px 5px 5px 5px;*/
+	font-size: 5px;
+	/*width: 33%*/;
+}
+
+textarea {
+	font-size: 10px;
+	text-align: left;
+}
+
+#message {cols:"20";rows:"2";
+	
+}
+
+font {
+	color: white;
+}
+
+a {
+	text-decoration: none;
+	color:white;
+}
+
+input {
+	padding: 5px 5px 5px 5px;
+	borde: 0;
+	width: 90%;
+}
+
+#index {cols:"20";rows:"2";
+	width: 33%;
+}
+
+div {
+	width:400px;
+  height:200px;
+	background: #f0f0f0;
+}
+
+object {
+	width: 200px;
+	height: 100px;
+	/*background:#f0f0f0;*/
+}
+
+div svg {
+	width: 100%;
+	height: 100%;
+	
+}
+img,div,object,iframe,embed,svg {
+  border: 1px solid #222;
+  width: 106px;
+  height: 122px;
+  display: inline-block;
+  margin:1em;
+  padding:1em;
+  color:white;
+  background:#f0f0f0;
+}
+
+        .container {
+            width: 80%; /* Ancho del contenedor */
+            margin: 0 auto; /* Centra el contenedor */
+        }
+        .input-field {
+            width: 100%; /* Ocupa todo el ancho del contenedor */
+            padding: 10px; /* Ajusta el relleno según necesidad */
+            box-sizing: border-box; /* Incluye el relleno en el ancho total */
+            font-size: .8em; /* Tamaño de fuente relativo */
+        }
+
+a {
+  color: white;
+  text-decoration: underline;
+}
+a:hover {
+  color: #cccccc; /* Cambia el color cuando el mouse está sobre el enlace */
+  text-decoration: none; /* Elimina el subrayado al pasar el mouse sobre el enlace */
+}

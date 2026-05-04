@@ -1,0 +1,57 @@
+<script>
+    function leerArchivo() {
+        var fileInput = document.getElementById('fileInput');
+        var file = fileInput.files[0];
+
+        if (!file) {
+            alert('Por favor, selecciona un archivo.');
+            return;
+        }
+
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            var contenido = event.target.result;
+            var nombreArchivo = file.name;
+            document.getElementById('nombreArchivo').value = nombreArchivo;
+            document.getElementById('contenidoArchivo').innerText = contenido;
+            document.getElementById('textoSVG').value = contenido; // Mostrar contenido en el textarea
+        };
+
+        // Manejo de errores al leer el archivo
+        reader.onerror = function(event) {
+            console.error("Error al leer el archivo:", event.target.error);
+            alert("Error al leer el archivo.");
+        };
+
+        // Leer el contenido del archivo como texto
+        reader.readAsText(file);
+    }
+</script>
+
+<section>
+    <table>
+        <tr>
+            <td style="width:150px; background-color:#d7dbdd">
+                <h4>Sube una imagen desde el PC</h4>
+            </td>
+            <td style="width:600px">
+                <form id="ImagenNueva" method="GET" action="/GestorSvg/apiEdit">
+                    <input type="file" id="fileInput" accept=".svg" />
+                    <button type="button" onclick="leerArchivo()">Leer Archivo</button>
+                    <div>
+                        <label for="nombreArchivo">Nombre del archivo:</label>
+                        <input type="text" id="nombreArchivo" name="svgName" readonly>
+                    </div>
+                    <div id="contenidoArchivo"></div>
+                    <div>
+                        <label for="textoSVG">Contenido del archivo SVG:</label>
+                        <textarea id="textoSVG" name="svgContent" readonly rows="10"></textarea>
+                    </div>
+                    <hr>
+                    <button id="submit" form="ImagenNueva">Nueva imagen</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</section>
