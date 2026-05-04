@@ -1,1 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>GestorSvg</display-name>
+	<welcome-file-list>
+		<welcome-file>jsp/index.jsp</welcome-file>
+ </welcome-file-list>
 
+	<servlet>
+		<servlet-name>CreateCollection</servlet-name>
+		<servlet-class>servlets.CreateCollection</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CreateCollection</servlet-name>
+		<url-pattern>/apiCC</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>DeleteCollection</servlet-name>
+		<servlet-class>servlets.DeleteCollection</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteCollection</servlet-name>
+		<url-pattern>/apiDC</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ListResources</servlet-name>
+		<servlet-class>servlets.ListResources</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ListResources</servlet-name>
+		<url-pattern>/apiLR</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>DeleteSvg</servlet-name>
+		<servlet-class>servlets.DeleteSvg</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DeleteSvg</servlet-name>
+		<url-pattern>/apiDelete</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>EditarSvg</servlet-name>
+		<servlet-class>servlets.EditarSvg</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>EditarSvg</servlet-name>
+		<url-pattern>/apiEdit</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>SaveUpdateResource</servlet-name>
+		<servlet-class>servlets.SaveUpdateResource</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SaveUpdateResource</servlet-name>
+		<url-pattern>/appSaveUpdate</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NewImage</servlet-name>
+		<servlet-class>servlets.NewImage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewImage</servlet-name>
+		<url-pattern>/apiNI</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>NewImageFile</servlet-name>
+		<servlet-class>servlets.NewImageFile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>NewImageFile</servlet-name>
+		<url-pattern>/apiNIF</url-pattern>
+	</servlet-mapping>
+
+
+
+
+</web-app>
